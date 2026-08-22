@@ -1,128 +1,69 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Margagliotti Manager V2</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0a0a0a">
-<style>
- :root{--bg:#0a0a0a;--card:#1a1a1a;--card2:#222;--accent:#3b82f6;--ok:#22c55e;--warn:#f59e0b;--danger:#ef4444}
- *{box-sizing:border-box} body{font-family:-apple-system, sans-serif; background:var(--bg); color:white; margin:0; padding:0;}
- header{padding:20px; position:sticky; top:0; background:rgba(10,10,10,0.9); backdrop-filter:blur(10px); z-index:10; border-bottom:1px solid #222}
- h1{margin:0; font-size:22px} h1 span{color:var(--accent)}
- .wrap{padding:15px; max-width:600px; margin:0 auto; padding-bottom:100px}
- .card{background:var(--card); border-radius:16px; padding:16px; margin:12px 0; border:1px solid #2a2a2a}
- input,select,textarea{width:100%; background:var(--card2); border:1px solid #333; color:white; padding:12px; border-radius:10px; margin:6px 0; font-size:15px}
- button{background:white; color:black; border:0; padding:13px 18px; border-radius:12px; font-weight:bold; font-size:15px; cursor:pointer}
- .btn-blue{background:var(--accent); color:white} .btn-ghost{background:#2a2a2a; color:white}
- .row{display:flex; gap:8px} .row>*{flex:1}
- .badge{padding:4px 10px; border-radius:20px; font-size:12px; font-weight:bold; display:inline-block}
- .s-misurato{background:#1e3a8a; color:#93c5fd} .s-ordinato{background:#78350f; color:#fcd34d} .s-montato{background:#14532d; color:#86efac} .s-pagato{background:#fff; color:#000}
- .actions{display:flex; gap:6px; margin-top:10px}
- .actions a, .actions button{flex:1; text-align:center; text-decoration:none; padding:10px; border-radius:10px; font-size:13px; font-weight:bold}
- .call{background:#22c55e; color:black} .wa{background:#25D366; color:black} .map{background:#2a2a2a; color:white}
- #fab{position:fixed; bottom:20px; right:20px; width:56px; height:56px; border-radius:50%; background:var(--accent); color:white; font-size:30px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(59,130,246,0.4)}
- .top-tabs{display:flex; gap:8px; margin:15px 0; overflow-x:auto}
- .top-tabs button{white-space:nowrap; padding:8px 14px; border-radius:20px}
- .active-tab{background:white; color:black !important}
- .hidden{display:none}
-</style>
-</head>
-<body>
-<header>
- <h1><span>Margagliotti</span> Manager V2</h1>
- <div class="top-tabs" id="tabs">
-  <button onclick="filterCat('tutti')" class="btn-ghost active-tab" id="tab-tutti">Tutti</button>
-  <button onclick="filterCat('Blindata')" class="btn-ghost">Blindate</button>
-  <button onclick="filterCat('Interna')" class="btn-ghost">Interne</button>
-  <button onclick="filterCat('Finestra')" class="btn-ghost">Finestre</button>
-  <button onclick="filterCat('Persiana')" class="btn-ghost">Persiane</button>
-  <button onclick="filterCat('Tapparella')" class="btn-ghost">Tapparelle</button>
-  <button onclick="filterCat('Zanzariera')" class="btn-ghost">Zanzariere</button>
-  <button onclick="filterCat('Grate')" class="btn-ghost">Grate</button>
- </div>
-</header>
+<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Margagliotti V4.3 Sopra Fianco</title>
+<style>:root{--bg:#0a0a0a;--card:#1c1c1e;--accent:#3b82f6;--ok:#22c55e}*{box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:var(--bg);color:white;margin:0}header{padding:14px;background:#111;position:sticky;top:0;z-index:10;border-bottom:1px solid #222}.wrap{max-width:680px;margin:0 auto;padding:12px;padding-bottom:140px}.card{background:var(--card);border-radius:16px;padding:16px;margin:12px 0;border:1px solid #27272a}.check{display:flex;justify-content:space-between;align-items:center;background:#27272a;padding:10px 12px;border-radius:10px;margin:6px 0;border:1px solid #3f3f46}.check.due{border-color:#ef4444;background:#2e1515}.check.optNet{border-color:#22c55e;background:#15261a}.check.luce{border-color:#38bdf8;background:#132a35}.badge{background:var(--ok);color:black;padding:2px 8px;border-radius:20px;font-size:10px}.badge-red{background:#ef4444;color:white;padding:2px 8px;border-radius:20px;font-size:10px}input,select{width:100%;background:#27272a;border:1px solid #3f3f46;color:white;padding:12px;border-radius:10px;margin:6px 0}.row{display:flex;gap:10px}.row>*{flex:1}.priceBox{background:#111;border:1px solid #3f3f46;border-radius:14px;padding:14px;margin:12px 0;position:sticky;bottom:10px}.priceRow{display:flex;justify-content:space-between;margin:3px 0;font-size:13px}.priceRow.total{border-top:1px solid #333;margin-top:8px;padding-top:8px;font-size:18px;font-weight:bold}.section{border-left:3px solid var(--accent);padding-left:10px;margin:14px 0 6px 0;font-weight:bold;font-size:12px;text-transform:uppercase}</style></head><body>
+<header><b style="color:#3b82f6">Margagliotti</b> <span class="badge">V4.3 Sopraluce/Fiancoluce</span> <span class="badge-red" id="badgeDue" style="display:none">DUE ANTE x2 RIV</span></header>
+<div class="wrap"><div class="card">
+<select id="modello" onchange="calc()"><option value="308.22">Anta C 308,22</option><option value="361.52">Anta CC 361,52</option><option value="399.77">Anta CC-D 399,77</option><option value="346.47">Pred C 346,47</option><option value="399.77">Pred CC 399,77</option><option value="438.03">Pred CC-D 438,03</option></select>
+<div class="row"><div class="check"><span>Controtelaio 38,25</span><input type="checkbox" id="controt" checked onchange="calc()"></div><div class="check"><span>FM</span><select id="fm" onchange="calc()" style="width:90px;margin:0;padding:6px"><option value="0">STD</option><option value="89.67">FM1</option><option value="153.01">FM2</option><option value="76.50">FM3</option><option value="142.67">FM4</option><option value="107.86">FM1.3</option><option value="182.49">FM2.4</option><option value="160.54">FM1.4/2.3</option></select></div></div>
 
-<div class="wrap">
- <div class="card" id="formCard" style="border:1px solid var(--accent)">
-  <h3 style="margin:0 0 10px 0">+ Nuovo Cantiere / Cliente</h3>
-  <input id="nome" placeholder="Nome Cliente *">
-  <input id="tel" placeholder="Telefono (per WhatsApp)">
-  <input id="indirizzo" placeholder="Indirizzo Cantiere">
-  <div class="row">
-   <select id="categoria"><option value="Blindata">Porta Blindata</option><option value="Interna">Porta Interna</option><option value="Finestra">Finestra / Infisso</option><option value="Persiana">Persiana</option><option value="Tapparella">Tapparella</option><option value="Zanzariera">Zanzariera</option><option value="Controcassa">Controcassa</option><option value="Grate">Grate / Inferriata</option></select>
-   <select id="stato"><option value="Da misurare">Da misurare</option><option value="Ordinato">Ordinato</option><option value="Montato">Montato</option><option value="Pagato">Pagato</option></select>
-  </div>
-  <div class="row">
-   <input id="larg" placeholder="Larg. cm" type="number">
-   <input id="alt" placeholder="Alt. cm" type="number">
-  </div>
-  <textarea id="note" placeholder="Note, colore, modello, prezzo..."></textarea>
-  <div class="row">
-   <button class="btn-blue" onclick="salva()">Salva Cantiere</button>
-   <button class="btn-ghost" onclick="esporta()">Backup</button>
-  </div>
- </div>
+<div class="section" style="border-left-color:#38bdf8">Sopraluce / Fiancoluce - NUOVO NETTO</div>
+<div class="check luce"><span>Sopraluce 1 anta <b>252,88€</b></span><input type="checkbox" id="sopra1" onchange="calc()"></div>
+<div class="check luce"><span>Sopraluce 2 ante <b>339,71€</b></span><input type="checkbox" id="sopra2" onchange="calc()"></div>
+<div class="check luce"><span>Fiancoluce <b>796,05€</b></span><input type="checkbox" id="fianco" onchange="calc()"></div>
+<div class="check luce"><span>Fiancoluce e Sopraluce <b>1004,09€</b></span><input type="checkbox" id="fiancoSopra" onchange="calc()"></div>
+<div class="check luce"><span>Fiancoluce Doppio <b>1187,72€</b></span><input type="checkbox" id="fiancoDop" onchange="calc()"></div>
+<div class="check luce"><span>Fianchiluce e Sopraluce <b>1465,49€</b></span><input type="checkbox" id="fianchiSopra" onchange="calc()"></div>
 
- <div id="lista"></div>
-</div>
+<div class="section" style="border-left-color:#22c55e">Optional Netti Tecnici</div>
+<div class="check optNet"><span>Cerniere scomparsa 89,36€</span><input type="checkbox" id="cernScomp" onchange="calc()"></div>
+<div class="check optNet"><span>Euro Sound 126,98€</span><input type="checkbox" id="euroSound" onchange="calc()"></div>
+<div class="check optNet"><span>Tirare 90,92€</span><input type="checkbox" id="tirare" onchange="calc()"></div>
+<div class="check optNet"><span>Classe 4 208,82€</span><input type="checkbox" id="classe4" onchange="calc()"></div>
+<div class="check optNet"><span>Omnia 453,70€</span><input type="checkbox" id="omnia" onchange="calc()"></div>
+<div class="check optNet"><span>Tech 1338,85€</span><input type="checkbox" id="tech" onchange="calc()"></div>
+<div class="check due"><span><b>Due Ante 491,02€</b> → x2 riv</span><input type="checkbox" id="dueAnte" onchange="calc()"></div>
 
-<div id="fab" onclick="document.getElementById('formCard').scrollIntoView({behavior:'smooth'})">+</div>
+<div class="section" style="border-left-color:#f59e0b">Imbotte + Coprifili</div>
+<div class="check" style="border-color:#f59e0b;background:#2e2614"><span><b>Imbotte</b> <span id="imbL" class="badge" style="background:#f59e0b;color:black">161,48</span></span><input type="checkbox" id="imb" onchange="calc()"></div>
+<div class="check"><span>Coprifili imp. 51,42€</span><input type="checkbox" id="copImp" onchange="calc()"></div>
+<div class="check"><span>Coprifili mass. 81,52€</span><input type="checkbox" id="copMass" onchange="calc()"></div>
 
+<div class="section">Rivestimenti (x2 se Due Ante)</div>
+<div id="rivList"></div>
+
+<div class="section">Altri</div>
+<div class="check"><span>Defender 73€</span><input type="checkbox" id="defender" onchange="calc()"></div>
+<div class="check"><span>Falegnameria 600€</span><input type="checkbox" id="rivest" onchange="calc()"></div>
+<div id="opts"></div>
+
+<div class="row"><input id="ricarico" type="number" value="120" oninput="calc()" placeholder="Ricarico %"><input id="posa" type="number" value="250" oninput="calc()" placeholder="Posa €"></div>
+<select id="iva" onchange="calc()"><option value="0">0%</option><option value="4">4%</option><option value="10" selected>10%</option><option value="22">22%</option></select>
+
+<div class="priceBox"><div class="priceRow"><span>Base+FM</span><span id="cBase">0</span></div><div class="priceRow"><span>Luci</span><span id="cLuci">0</span></div><div class="priceRow"><span>Optional Netti</span><span id="cNetti">0</span></div><div class="priceRow"><span>Rivestimenti</span><span id="cRiv">0</span></div><div class="priceRow"><span>Netto</span><span id="cSub">0</span></div><div class="priceRow total"><span>TOTALE</span><span id="tot" style="color:#22c55e">0</span></div><div id="det" style="font-size:10px;opacity:0.6;margin-top:6px"></div></div>
+</div></div>
 <script>
-let clienti = JSON.parse(localStorage.getItem('margagliotti_v2')||'[]');
-let filtro='tutti';
-
-function salva(){
- if(!nome.value) return alert('Metti almeno il nome cliente');
- const c={id:Date.now(), nome:nome.value, tel:tel.value, indirizzo:indirizzo.value, categoria:categoria.value, stato:stato.value, larg:larg.value, alt:alt.value, note:note.value, data:new Date().toLocaleDateString()};
- clienti.unshift(c);
- localStorage.setItem('margagliotti_v2', JSON.stringify(clienti));
- nome.value=tel.value=indirizzo.value=larg.value=alt.value=note.value='';
- render();
+const V={R_S:33.86,R_F:56.44,P_S:275.61,P_F:344.51,A_S:367.79,A_F:459.74,ROC_S:166.18,ROC_F:207.73,INC_S:234.85,INC_F:293.56,ROC_T_S:268.40,ROC_T_F:335.50,NOV_S:287.21,NOV_F:359.01,IMB_S:161.48,IMB_F:223.87,COP_I:51.42,COP_M:81.52};
+const O=[{n:'RAL 9016',p:49.54},{n:'Acciaio',p:57.07},{n:'Colore RAL',p:102.84},{n:'Controltelaio div',p:38.25},{n:'Genovese',p:158.97},{n:'Maniglieria',p:20.07},{n:'Spioncino h',p:11.29},{n:'Spioncino elettr',p:104.41},{n:'Maniglia h',p:57.69},{n:'Limitatore',p:13.17},{n:'Cerniera',p:17.87},{n:'Serratura elettr',p:109.74},{n:'Kit O5',p:50.17},{n:'Kit O6',p:99.71},{n:'Azis',p:25.08},{n:'Astral',p:46.41},{n:'APA5',p:102.53},{n:'RS3',p:126.36}];
+const RIVS=[{id:'eco', name:'Eco', std:V.R_S, fm:V.R_F},{id:'pvc', name:'PVC', std:V.P_S, fm:V.P_F},{id:'alu', name:'Alluminio', std:V.A_S, fm:V.A_F},{id:'roc', name:'Roccia Base', std:V.ROC_S, fm:V.ROC_F},{id:'inc', name:'Incisi', std:V.INC_S, fm:V.INC_F},{id:'rocT', name:'Roccia Tondo', std:V.ROC_T_S, fm:V.ROC_T_F},{id:'nov', name:'Novanta', std:V.NOV_S, fm:V.NOV_F}];
+function build(){
+ document.getElementById('rivList').innerHTML=RIVS.map(r=>`<div class="check"><span>${r.name} <span id="${r.id}L" class="badge">${r.std.toFixed(2)}</span></span><span><input type="checkbox" id="${r.id}" onchange="calc()"><input type="number" id="qta${r.id}" value="1" style="width:35px;padding:6px;display:inline" oninput="calc()"></span></div>`).join('');
+ document.getElementById('opts').innerHTML=O.map((o,i)=>`<div class="check"><span>${o.n} <b>${o.p}€</b></span><input type="checkbox" id="o${i}" onchange="calc()"></div>`).join('');
 }
-function elimina(id){ if(confirm('Eliminare?')){ clienti=clienti.filter(x=>x.id!=id); localStorage.setItem('margagliotti_v2', JSON.stringify(clienti)); render(); }}
-function cambiaStato(id){
- const c=clienti.find(x=>x.id==id);
- const stati=['Da misurare','Ordinato','Montato','Pagato'];
- let i=stati.indexOf(c.stato); c.stato=stati[(i+1)%stati.length];
- localStorage.setItem('margagliotti_v2', JSON.stringify(clienti)); render();
+function calc(){
+ let b=parseFloat(modello.value),cc=controt.checked?38.25:0,fmV=parseFloat(fm.value),isFM=fmV>0,isDue=document.getElementById('dueAnte').checked,mol=isDue?2:1;
+ document.getElementById('badgeDue').style.display=isDue?'inline':'none';
+ let imbP=isFM?V.IMB_F:V.IMB_S; document.getElementById('imbL').innerText=imbP.toFixed(2)+(isFM?' FM':' STD');
+ RIVS.forEach(r=>{let p=isFM?r.fm:r.std; let el=document.getElementById(r.id+'L'); if(el) el.innerText=(p*mol).toFixed(2)+'€'+(isDue?' x2':'');});
+ let base=b+cc+fmV, extra=(defender.checked?73:0)+(rivest.checked?600:0);
+ let luci=(sopra1.checked?252.88:0)+(sopra2.checked?339.71:0)+(fianco.checked?796.05:0)+(fiancoSopra.checked?1004.09:0)+(fiancoDop.checked?1187.72:0)+(fianchiSopra.checked?1465.49:0);
+ let optNet=(cernScomp.checked?89.36:0)+(euroSound.checked?126.98:0)+(tirare.checked?90.92:0)+(classe4.checked?208.82:0)+(omnia.checked?453.70:0)+(tech.checked?1338.85:0)+(dueAnte.checked?491.02:0);
+ let rivTot=0; RIVS.forEach(r=>{let p=isFM?r.fm:r.std; let chk=document.getElementById(r.id); if(chk&&chk.checked) rivTot+=p*mol*(parseInt(document.getElementById('qta'+r.id).value)||0);});
+ let imbTot=(imb.checked?imbP:0)+(copImp.checked?V.COP_I:0)+(copMass.checked?V.COP_M:0);
+ let opt=0; O.forEach((o,i)=>{let e=document.getElementById('o'+i); if(e&&e.checked) opt+=o.p;});
+ let sub=base+extra+rivTot+imbTot+opt+optNet+luci;
+ let ricP=parseFloat(ricarico.value)||0, ricV=sub*ricP/100, posaV=parseFloat(posa.value)||0, imp=sub+ricV+posaV, ivaPe=parseFloat(iva.value)||0, totV=imp*(1+ivaPe/100);
+ cBase.innerText='€'+base.toFixed(2); cLuci.innerText='€'+luci.toFixed(2); cNetti.innerText='€'+optNet.toFixed(2); cRiv.innerText='€'+rivTot.toFixed(2); cSub.innerText='€'+sub.toFixed(2); tot.innerText='€'+totV.toFixed(2);
+ det.innerText=`Luci €${luci.toFixed(2)} | ${isDue?'DUE ANTE x2 riv':'1 ANTA'}`;
+ return {sub,totV};
 }
-function filterCat(cat){
- filtro=cat;
- document.querySelectorAll('#tabs button').forEach(b=>b.classList.remove('active-tab'));
- event.target.classList.add('active-tab');
- render();
-}
-function render(){
- const q = filtro==='tutti'? clienti : clienti.filter(c=>c.categoria===filtro || c.categoria.includes(filtro));
- lista.innerHTML = q.length? '' : '<p style="text-align:center; opacity:0.5; margin-top:30px">Nessun cantiere in questa categoria</p>';
- q.forEach(c=>{
-  const badgeClass = c.stato==='Da misurare'?'s-misurato':c.stato==='Ordinato'?'s-ordinato':c.stato==='Montato'?'s-montato':'s-pagato';
-  lista.innerHTML+=`
-  <div class="card">
-   <div style="display:flex; justify-content:space-between; align-items:start">
-    <div><b style="font-size:17px">${c.nome}</b><br><span style="opacity:0.7; font-size:13px">${c.categoria} ${c.larg?' - '+c.larg+'x'+c.alt+' cm':''}</span></div>
-    <span class="badge ${badgeClass}" onclick="cambiaStato(${c.id})">${c.stato}</span>
-   </div>
-   ${c.indirizzo?`<div style="margin-top:8px; font-size:13px; opacity:0.8">📍 ${c.indirizzo}</div>`:''}
-   ${c.note?`<div style="margin-top:6px; background:#222; padding:8px; border-radius:8px; font-size:13px">${c.note}</div>`:''}
-   <div class="actions">
-    ${c.tel?`<a class="call" href="tel:${c.tel}">Chiama</a><a class="wa" href="https://wa.me/39${c.tel.replace(/\D/g,'').slice(-10)}" target="_blank">WhatsApp</a>`:''}
-    ${c.indirizzo?`<a class="map" href="https://maps.google.com/?q=${encodeURIComponent(c.indirizzo)}" target="_blank">Maps</a>`:''}
-    <button class="btn-ghost" onclick="elimina(${c.id})" style="flex:0.5">X</button>
-   </div>
-  </div>`;
- });
-}
-function esporta(){
- const blob=new Blob([JSON.stringify(clienti)],{type:'application/json'});
- const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='margagliotti_backup_'+new Date().toISOString().slice(0,10)+'.json'; a.click();
- alert('Backup scaricato! Salvalo su Drive per averlo su PC e iPhone.');
-}
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
-render();
-</script>
-</body>
-</html>
+build(); calc();
+</script></body></html>
