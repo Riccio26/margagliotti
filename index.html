@@ -2,28 +2,127 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Margagliotti Manager</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Margagliotti Manager V2</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0a0a0a">
 <style>
- body{font-family:-apple-system, sans-serif; background:#0a0a0a; color:white; margin:0; padding:20px; text-align:center;}
- .card{background:#1a1a1a; border-radius:16px; padding:20px; margin:15px 0;}
- h1{font-size:28px} button{background:white; color:black; border:0; padding:14px 24px; border-radius:12px; font-weight:bold; width:100%; font-size:16px; margin-top:10px;}
+ :root{--bg:#0a0a0a;--card:#1a1a1a;--card2:#222;--accent:#3b82f6;--ok:#22c55e;--warn:#f59e0b;--danger:#ef4444}
+ *{box-sizing:border-box} body{font-family:-apple-system, sans-serif; background:var(--bg); color:white; margin:0; padding:0;}
+ header{padding:20px; position:sticky; top:0; background:rgba(10,10,10,0.9); backdrop-filter:blur(10px); z-index:10; border-bottom:1px solid #222}
+ h1{margin:0; font-size:22px} h1 span{color:var(--accent)}
+ .wrap{padding:15px; max-width:600px; margin:0 auto; padding-bottom:100px}
+ .card{background:var(--card); border-radius:16px; padding:16px; margin:12px 0; border:1px solid #2a2a2a}
+ input,select,textarea{width:100%; background:var(--card2); border:1px solid #333; color:white; padding:12px; border-radius:10px; margin:6px 0; font-size:15px}
+ button{background:white; color:black; border:0; padding:13px 18px; border-radius:12px; font-weight:bold; font-size:15px; cursor:pointer}
+ .btn-blue{background:var(--accent); color:white} .btn-ghost{background:#2a2a2a; color:white}
+ .row{display:flex; gap:8px} .row>*{flex:1}
+ .badge{padding:4px 10px; border-radius:20px; font-size:12px; font-weight:bold; display:inline-block}
+ .s-misurato{background:#1e3a8a; color:#93c5fd} .s-ordinato{background:#78350f; color:#fcd34d} .s-montato{background:#14532d; color:#86efac} .s-pagato{background:#fff; color:#000}
+ .actions{display:flex; gap:6px; margin-top:10px}
+ .actions a, .actions button{flex:1; text-align:center; text-decoration:none; padding:10px; border-radius:10px; font-size:13px; font-weight:bold}
+ .call{background:#22c55e; color:black} .wa{background:#25D366; color:black} .map{background:#2a2a2a; color:white}
+ #fab{position:fixed; bottom:20px; right:20px; width:56px; height:56px; border-radius:50%; background:var(--accent); color:white; font-size:30px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(59,130,246,0.4)}
+ .top-tabs{display:flex; gap:8px; margin:15px 0; overflow-x:auto}
+ .top-tabs button{white-space:nowrap; padding:8px 14px; border-radius:20px}
+ .active-tab{background:white; color:black !important}
+ .hidden{display:none}
 </style>
 </head>
 <body>
- <h1>Margagliotti Manager</h1>
- <div class="card">
-   <h3>✅ App Installata!</h3>
-   <p>Ora funziona anche offline.</p>
-   <button onclick="alert('Prossimo step: colleghiamo chat e calendario!')">Test Funziona</button>
+<header>
+ <h1><span>Margagliotti</span> Manager V2</h1>
+ <div class="top-tabs" id="tabs">
+  <button onclick="filterCat('tutti')" class="btn-ghost active-tab" id="tab-tutti">Tutti</button>
+  <button onclick="filterCat('Blindata')" class="btn-ghost">Blindate</button>
+  <button onclick="filterCat('Interna')" class="btn-ghost">Interne</button>
+  <button onclick="filterCat('Finestra')" class="btn-ghost">Finestre</button>
+  <button onclick="filterCat('Persiana')" class="btn-ghost">Persiane</button>
+  <button onclick="filterCat('Tapparella')" class="btn-ghost">Tapparelle</button>
+  <button onclick="filterCat('Zanzariera')" class="btn-ghost">Zanzariere</button>
+  <button onclick="filterCat('Grate')" class="btn-ghost">Grate</button>
  </div>
- <div class="card">
-   <p>Clienti | Chat | Appuntamenti</p>
+</header>
+
+<div class="wrap">
+ <div class="card" id="formCard" style="border:1px solid var(--accent)">
+  <h3 style="margin:0 0 10px 0">+ Nuovo Cantiere / Cliente</h3>
+  <input id="nome" placeholder="Nome Cliente *">
+  <input id="tel" placeholder="Telefono (per WhatsApp)">
+  <input id="indirizzo" placeholder="Indirizzo Cantiere">
+  <div class="row">
+   <select id="categoria"><option value="Blindata">Porta Blindata</option><option value="Interna">Porta Interna</option><option value="Finestra">Finestra / Infisso</option><option value="Persiana">Persiana</option><option value="Tapparella">Tapparella</option><option value="Zanzariera">Zanzariera</option><option value="Controcassa">Controcassa</option><option value="Grate">Grate / Inferriata</option></select>
+   <select id="stato"><option value="Da misurare">Da misurare</option><option value="Ordinato">Ordinato</option><option value="Montato">Montato</option><option value="Pagato">Pagato</option></select>
+  </div>
+  <div class="row">
+   <input id="larg" placeholder="Larg. cm" type="number">
+   <input id="alt" placeholder="Alt. cm" type="number">
+  </div>
+  <textarea id="note" placeholder="Note, colore, modello, prezzo..."></textarea>
+  <div class="row">
+   <button class="btn-blue" onclick="salva()">Salva Cantiere</button>
+   <button class="btn-ghost" onclick="esporta()">Backup</button>
+  </div>
  </div>
+
+ <div id="lista"></div>
+</div>
+
+<div id="fab" onclick="document.getElementById('formCard').scrollIntoView({behavior:'smooth'})">+</div>
+
 <script>
- if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
+let clienti = JSON.parse(localStorage.getItem('margagliotti_v2')||'[]');
+let filtro='tutti';
+
+function salva(){
+ if(!nome.value) return alert('Metti almeno il nome cliente');
+ const c={id:Date.now(), nome:nome.value, tel:tel.value, indirizzo:indirizzo.value, categoria:categoria.value, stato:stato.value, larg:larg.value, alt:alt.value, note:note.value, data:new Date().toLocaleDateString()};
+ clienti.unshift(c);
+ localStorage.setItem('margagliotti_v2', JSON.stringify(clienti));
+ nome.value=tel.value=indirizzo.value=larg.value=alt.value=note.value='';
+ render();
+}
+function elimina(id){ if(confirm('Eliminare?')){ clienti=clienti.filter(x=>x.id!=id); localStorage.setItem('margagliotti_v2', JSON.stringify(clienti)); render(); }}
+function cambiaStato(id){
+ const c=clienti.find(x=>x.id==id);
+ const stati=['Da misurare','Ordinato','Montato','Pagato'];
+ let i=stati.indexOf(c.stato); c.stato=stati[(i+1)%stati.length];
+ localStorage.setItem('margagliotti_v2', JSON.stringify(clienti)); render();
+}
+function filterCat(cat){
+ filtro=cat;
+ document.querySelectorAll('#tabs button').forEach(b=>b.classList.remove('active-tab'));
+ event.target.classList.add('active-tab');
+ render();
+}
+function render(){
+ const q = filtro==='tutti'? clienti : clienti.filter(c=>c.categoria===filtro || c.categoria.includes(filtro));
+ lista.innerHTML = q.length? '' : '<p style="text-align:center; opacity:0.5; margin-top:30px">Nessun cantiere in questa categoria</p>';
+ q.forEach(c=>{
+  const badgeClass = c.stato==='Da misurare'?'s-misurato':c.stato==='Ordinato'?'s-ordinato':c.stato==='Montato'?'s-montato':'s-pagato';
+  lista.innerHTML+=`
+  <div class="card">
+   <div style="display:flex; justify-content:space-between; align-items:start">
+    <div><b style="font-size:17px">${c.nome}</b><br><span style="opacity:0.7; font-size:13px">${c.categoria} ${c.larg?' - '+c.larg+'x'+c.alt+' cm':''}</span></div>
+    <span class="badge ${badgeClass}" onclick="cambiaStato(${c.id})">${c.stato}</span>
+   </div>
+   ${c.indirizzo?`<div style="margin-top:8px; font-size:13px; opacity:0.8">📍 ${c.indirizzo}</div>`:''}
+   ${c.note?`<div style="margin-top:6px; background:#222; padding:8px; border-radius:8px; font-size:13px">${c.note}</div>`:''}
+   <div class="actions">
+    ${c.tel?`<a class="call" href="tel:${c.tel}">Chiama</a><a class="wa" href="https://wa.me/39${c.tel.replace(/\D/g,'').slice(-10)}" target="_blank">WhatsApp</a>`:''}
+    ${c.indirizzo?`<a class="map" href="https://maps.google.com/?q=${encodeURIComponent(c.indirizzo)}" target="_blank">Maps</a>`:''}
+    <button class="btn-ghost" onclick="elimina(${c.id})" style="flex:0.5">X</button>
+   </div>
+  </div>`;
+ });
+}
+function esporta(){
+ const blob=new Blob([JSON.stringify(clienti)],{type:'application/json'});
+ const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='margagliotti_backup_'+new Date().toISOString().slice(0,10)+'.json'; a.click();
+ alert('Backup scaricato! Salvalo su Drive per averlo su PC e iPhone.');
+}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
+render();
 </script>
 </body>
 </html>
