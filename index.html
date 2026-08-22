@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Margagliotti Manager</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0a0a">
+<style>
+ body{font-family:-apple-system, sans-serif; background:#0a0a0a; color:white; margin:0; padding:20px; text-align:center;}
+ .card{background:#1a1a1a; border-radius:16px; padding:20px; margin:15px 0;}
+ h1{font-size:28px} button{background:white; color:black; border:0; padding:14px 24px; border-radius:12px; font-weight:bold; width:100%; font-size:16px; margin-top:10px;}
+</style>
+</head>
+<body>
+ <h1>Margagliotti Manager</h1>
+ <div class="card">
+   <h3>✅ App Installata!</h3>
+   <p>Ora funziona anche offline.</p>
+   <button onclick="alert('Prossimo step: colleghiamo chat e calendario!')">Test Funziona</button>
+ </div>
+ <div class="card">
+   <p>Clienti | Chat | Appuntamenti</p>
+ </div>
+<script>
+ if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
+</script>
+</body>
+</html>
