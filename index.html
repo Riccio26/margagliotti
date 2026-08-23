@@ -1,73 +1,74 @@
-<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Margagliotti V5.0</title>
-<style>:root{--bg:#0a0a0a;--card:#1c1c1e;--blue:#1e3a8a}*{box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:var(--bg);color:white;margin:0}header{padding:14px;background:#111;position:sticky;top:0;z-index:10;border-bottom:1px solid #222}.wrap{max-width:750px;margin:0 auto;padding:12px;padding-bottom:200px}.card{background:var(--card);border-radius:16px;padding:16px;margin:12px 0;border:1px solid #27272a}.check{display:flex;justify-content:space-between;align-items:center;background:#27272a;padding:10px 12px;border-radius:10px;margin:6px 0;border:1px solid #3f3f46}.check.due{border-color:#ef4444;background:#2e1515}.check.optNet{border-color:#22c55e;background:#15261a}.check.luce{border-color:#38bdf8;background:#132a35}.badge{background:#22c55e;color:black;padding:2px 8px;border-radius:20px;font-size:10px}input,select,textarea{width:100%;background:#27272a;border:1px solid #3f3f46;color:white;padding:12px;border-radius:10px;margin:6px 0}.row{display:flex;gap:10px}.row>*{flex:1}.priceBox{background:#111;border:1px solid #3f3f46;border-radius:14px;padding:14px;margin:12px 0;position:sticky;bottom:10px;z-index:5}.priceRow{display:flex;justify-content:space-between;margin:3px 0;font-size:13px}.priceRow.total{border-top:1px solid #333;margin-top:8px;padding-top:8px;font-size:18px;font-weight:bold}.section{border-left:3px solid #3b82f6;padding-left:10px;margin:16px 0 6px 0;font-weight:bold;font-size:12px;text-transform:uppercase}.btn-pdf{background:#22c55e;color:black;width:100%;padding:16px;border-radius:12px;font-weight:800;border:0;margin-top:10px;font-size:16px}.btn-wa{background:#25D366;color:black;width:100%;padding:14px;border-radius:12px;font-weight:700;border:0;margin-top:8px}
+<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Margagliotti V5.1</title>
+<style>:root{--bg:#0a0a0a;--card:#1c1c1e}*{box-sizing:border-box}body{font-family:-apple-system,sans-serif;background:var(--bg);color:white;margin:0}header{padding:14px;background:#111;position:sticky;top:0;z-index:10;border-bottom:1px solid #222}.wrap{max-width:750px;margin:0 auto;padding:12px;padding-bottom:200px}.card{background:var(--card);border-radius:16px;padding:16px;margin:12px 0;border:1px solid #27272a}.check{display:flex;justify-content:space-between;align-items:center;background:#27272a;padding:10px 12px;border-radius:10px;margin:6px 0;border:1px solid #3f3f46}.badge{background:#22c55e;color:black;padding:2px 8px;border-radius:20px;font-size:10px}input,select,textarea{width:100%;background:#27272a;border:1px solid #3f3f46;color:white;padding:12px;border-radius:10px;margin:6px 0}.row{display:flex;gap:10px}.row>*{flex:1}.priceBox{background:#111;border:1px solid #3f3f46;border-radius:14px;padding:14px;margin:12px 0;position:sticky;bottom:10px;z-index:5}.priceRow{display:flex;justify-content:space-between;margin:3px 0}.priceRow.total{border-top:1px solid #333;margin-top:8px;padding-top:8px;font-size:18px;font-weight:bold}.section{border-left:3px solid #3b82f6;padding-left:10px;margin:16px 0 6px 0;font-weight:bold;font-size:12px;text-transform:uppercase}.btn-pdf{background:#22c55e;color:black;width:100%;padding:16px;border-radius:12px;font-weight:800;border:0;margin-top:10px;font-size:16px}.btn-wa{background:#25D366;color:black;width:100%;padding:14px;border-radius:12px;font-weight:700;border:0;margin-top:8px}
 @media print{body{background:white !important;color:black !important;margin:0}.no-print{display:none !important}#printArea{display:block !important}}
-#printArea{display:none;background:white;color:black;padding:20px;font-family:Arial, sans-serif; font-size:11px; line-height:1.4}
-.p-header{display:flex;justify-content:space-between;gap:20px;border-bottom:2px solid #fff;padding-bottom:10px}
+#printArea{display:none;background:white;color:black;padding:20px;font-family:Arial,sans-serif;font-size:11px;line-height:1.45}
+.p-header{display:flex;justify-content:space-between;gap:20px;padding-bottom:10px}
 .p-azienda{color:#1e3a8a;font-size:10px;line-height:1.5}
 .p-tabella{border-collapse:collapse;width:100%;}
 .p-tabella td{border:1px solid #333;padding:6px 8px;}
 .p-tabella td:first-child{color:#1e3a8a;font-weight:bold;width:90px;background:#f8f8f8}
 .p-title{font-weight:bold;margin:14px 0 6px 0;font-size:12px}
 .p-bullet{margin:3px 0 3px 20px}
-.p-tot{margin-top:20px;font-size:13px;font-weight:bold}
+.p-tot{margin-top:20px;font-size:14px;font-weight:bold}
+.p-door{float:right;width:150px;margin:0 0 10px 15px;border:1px solid #ddd}
+.clear{clear:both}
 </style></head><body>
-<header><b style="color:#3b82f6">Margagliotti</b> <span class="badge">V5.0 UFFICIALE</span></header>
+<header><b style="color:#3b82f6">Margagliotti</b> <span class="badge">V5.1 ARROTONDATO</span></header>
 <div class="wrap">
 <div class="card no-print">
-<div class="section">DATI CLIENTE (per tabella a destra del PDF)</div>
-<input id="ragione" placeholder="Ragione Sociale / Nome cliente">
-<input id="indirizzo" placeholder="Indirizzo cliente">
-<div class="row"><input id="email" placeholder="e-mail cliente"><input id="telefono" placeholder="Telefono cliente"></div>
-
-<div class="section">Modello Porta</div>
-<select id="modello"><option value="308.22">Anta C - 308,22</option><option value="361.52">Anta CC - 361,52</option><option value="399.77">Anta CC-D - 399,77</option><option value="346.47">Pred C - 346,47</option><option value="399.77">Pred CC - 399,77</option><option value="438.03">Pred CC-D - 438,03</option></select>
-<div class="row"><div class="check"><span>Controtelaio 38,25</span><input type="checkbox" id="controt" checked></div><div class="check"><span>FM</span><select id="fm" style="width:90px;margin:0;padding:6px"><option value="0">STD</option><option value="89.67">FM1 89,67</option><option value="153.01">FM2 153,01</option><option value="76.50">FM3 76,50</option><option value="142.67">FM4 142,67</option><option value="107.86">FM1.3 107,86</option><option value="182.49">FM2.4 182,49</option><option value="160.54">FM1.4/2.3 160,54</option></select></div></div>
-
-<div class="section" style="border-left-color:#38bdf8">Sopraluce / Fiancoluce</div>
-<div class="check luce"><span>Sopraluce 1 anta 252,88€</span><input type="checkbox" id="sopra1"></div>
-<div class="check luce"><span>Sopraluce 2 ante 339,71€</span><input type="checkbox" id="sopra2"></div>
-<div class="check luce"><span>Fiancoluce 796,05€</span><input type="checkbox" id="fianco"></div>
-<div class="check luce"><span>Fiancoluce e Sopraluce 1004,09€</span><input type="checkbox" id="fiancoSopra"></div>
-<div class="check luce"><span>Fiancoluce Doppio 1187,72€</span><input type="checkbox" id="fiancoDop"></div>
-<div class="check luce"><span>Fianchiluce e Sopraluce 1465,49€</span><input type="checkbox" id="fianchiSopra"></div>
-
-<div class="section" style="border-left-color:#22c55e">Optional Tecnici</div>
-<div class="check optNet"><span>Cerniere scomparsa 89,36€</span><input type="checkbox" id="cernScomp"></div>
-<div class="check optNet"><span>Euro Sound 126,98€</span><input type="checkbox" id="euroSound"></div>
-<div class="check optNet"><span>Tirare 90,92€</span><input type="checkbox" id="tirare"></div>
-<div class="check optNet"><span>Classe 4 208,82€</span><input type="checkbox" id="classe4"></div>
-<div class="check optNet"><span>Omnia 453,70€</span><input type="checkbox" id="omnia"></div>
-<div class="check optNet"><span>Tech 1338,85€</span><input type="checkbox" id="tech"></div>
-<div class="check due"><span><b>Due Ante 491,02€ → x2 riv</b></span><input type="checkbox" id="dueAnte"></div>
-
-<div class="section" style="border-left-color:#f59e0b">Imbotte + Coprifili</div>
-<div class="check"><span>Imbotte <span id="imbL" class="badge">161,48</span></span><input type="checkbox" id="imb"></div>
-<div class="check"><span>Coprifili imp 51,42€</span><input type="checkbox" id="copImp"></div>
-<div class="check"><span>Coprifili mass 81,52€</span><input type="checkbox" id="copMass"></div>
-
+<div class="section">DATI CLIENTE</div>
+<input id="ragione" placeholder="Ragione Sociale / Nome"><input id="indirizzo" placeholder="Indirizzo"><div class="row"><input id="email" placeholder="e-mail"><input id="telefono" placeholder="Telefono"></div>
+<div class="section">Modello (senza prezzi)</div>
+<select id="modello">
+<option value="308.22" data-name="Anta C">Anta C</option>
+<option value="361.52" data-name="Anta CC">Anta CC</option>
+<option value="399.77" data-name="Anta CC-D">Anta CC-D</option>
+<option value="346.47" data-name="Pred C">Pred C</option>
+<option value="399.77" data-name="Pred CC">Pred CC</option>
+<option value="438.03" data-name="Pred CC-D">Pred CC-D</option>
+</select>
+<div class="row"><div class="check"><span>Controtelaio</span><input type="checkbox" id="controt" checked></div><div class="check"><span>FM</span><select id="fm" style="width:90px;margin:0;padding:6px"><option value="0">STD</option><option value="89.67">FM1</option><option value="153.01">FM2</option><option value="76.50">FM3</option><option value="142.67">FM4</option><option value="107.86">FM1.3</option><option value="182.49">FM2.4</option><option value="160.54">FM1.4/2.3</option></select></div></div>
+<div class="section" style="border-left-color:#38bdf8">Luci</div>
+<div class="check" style="border-color:#38bdf8"><span>Sopraluce 1 anta</span><input type="checkbox" id="sopra1"></div>
+<div class="check" style="border-color:#38bdf8"><span>Sopraluce 2 ante</span><input type="checkbox" id="sopra2"></div>
+<div class="check" style="border-color:#38bdf8"><span>Fiancoluce</span><input type="checkbox" id="fianco"></div>
+<div class="check" style="border-color:#38bdf8"><span>Fianco+Sopra</span><input type="checkbox" id="fiancoSopra"></div>
+<div class="check" style="border-color:#38bdf8"><span>Fianco Doppio</span><input type="checkbox" id="fiancoDop"></div>
+<div class="check" style="border-color:#38bdf8"><span>Fianchiluce+Sopra</span><input type="checkbox" id="fianchiSopra"></div>
+<div class="section" style="border-left-color:#22c55e">Tecnici</div>
+<div class="check" style="border-color:#22c55e"><span>Cerniere scomparsa</span><input type="checkbox" id="cernScomp"></div>
+<div class="check" style="border-color:#22c55e"><span>Euro Sound</span><input type="checkbox" id="euroSound"></div>
+<div class="check" style="border-color:#22c55e"><span>Tirare</span><input type="checkbox" id="tirare"></div>
+<div class="check" style="border-color:#22c55e"><span>Classe 4</span><input type="checkbox" id="classe4"></div>
+<div class="check" style="border-color:#22c55e"><span>Omnia</span><input type="checkbox" id="omnia"></div>
+<div class="check" style="border-color:#22c55e"><span>Tech</span><input type="checkbox" id="tech"></div>
+<div class="check" style="border-color:#ef4444"><span><b>Due Ante (x2 riv)</b></span><input type="checkbox" id="dueAnte"></div>
+<div class="section">Imbotte</div>
+<div class="check"><span>Imbotte <span id="imbL" class="badge"></span></span><input type="checkbox" id="imb"></div>
+<div class="check"><span>Coprifili imp</span><input type="checkbox" id="copImp"></div>
+<div class="check"><span>Coprifili mass</span><input type="checkbox" id="copMass"></div>
 <div class="section">Rivestimenti</div><div id="rivList"></div>
-<div class="section">Altri</div><div class="check"><span>Defender 73€</span><input type="checkbox" id="defender"></div><div class="check"><span>Falegnameria 600€</span><input type="checkbox" id="rivest"></div><div id="opts"></div>
-
-<div class="section">Ricarico (NASCOSTO AL CLIENTE) + Posa + IVA</div>
-<div class="row"><input id="ricarico" type="number" value="120" placeholder="Ricarico %"><input id="posa" type="number" value="250" placeholder="Posa"></div>
-<select id="iva"><option value="0">0%</option><option value="4">4%</option><option value="10" selected>10%</option><option value="22">22%</option></select>
-<textarea id="note" placeholder="Note extra per personalizzazione"></textarea>
-
-<div class="priceBox"><div class="priceRow"><span>Netto</span><span id="cBase">0</span></div><div class="priceRow total"><span>TOTALE CLIENTE (IVA incl)</span><span id="tot">0</span></div><div style="font-size:9px;color:#888">Ricarico non visibile nel PDF cliente</div>
-<button class="btn-pdf" id="btnPdf">📄 GENERA PDF UFFICIALE</button>
-<button class="btn-wa" id="btnWa">💬 WHATSAPP CLIENTE</button>
+<div class="check"><span>Defender</span><input type="checkbox" id="defender"></div><div class="check"><span>Falegnameria</span><input type="checkbox" id="rivest"></div><div id="opts"></div>
+<div class="section">Ricarico nascosto + Posa + IVA</div>
+<div class="row"><input id="ricarico" type="number" value="120"><input id="posa" type="number" value="250"></div>
+<select id="iva"><option value="10" selected>10%</option><option value="4">4%</option><option value="22">22%</option><option value="0">0%</option></select>
+<textarea id="note" placeholder="Note extra"></textarea>
+<div class="priceBox"><div class="priceRow"><span>Netto reale</span><span id="cBase">0</span></div><div class="priceRow total"><span>TOTALE ARROTONDATO CLIENTE</span><span id="tot">0</span></div>
+<button class="btn-pdf" id="btnPdf">📄 PDF UFFICIALE ARROTONDATO</button>
+<button class="btn-wa" id="btnWa">💬 WHATSAPP</button>
 </div>
 </div>
 
 <div id="printArea">
 <div class="p-header">
 <div><img src="logo-margagliotti.png" style="height:50px"><div class="p-azienda">MARGAGLIOTTI S.R.L.S.<br>VIA DANTE 19/A, 09127, CAGLIARI (CA)<br>P.I. 03468700921<br>TEL. 070 3325634<br>info@margagliotti.it<br>www.margagliotti.it</div>
-<div id="pModelloBox" style="margin-top:10px;font-size:11px;color:black;font-weight:bold;border:1px solid #ccc;padding:6px;background:#f9f9f9">Modello preventivato: <span id="pModello"></span></div>
+<div style="margin-top:10px;font-size:11px;border:1px solid #ccc;padding:6px;background:#f9f9f9">Modello preventivato: <b><span id="pModello"></span></b></div>
 </div>
-<div><table class="p-tabella"><tr><td>Ragione Sociale</td><td id="pRagione"></td></tr><tr><td></td><td id="pRagione2"></td></tr><tr><td>Indirizzo</td><td id="pIndirizzo"></td></tr><tr><td>e-mail</td><td id="pEmail"></td></tr><tr><td>Telefono</td><td id="pTelefono"></td></tr></table>
-<img src="porta.png" style="width:140px;margin-top:12px;border:1px solid #ddd"></div>
+<div><table class="p-tabella"><tr><td>Ragione Sociale</td><td id="pRagione"></td></tr><tr><td></td><td></td></tr><tr><td>Indirizzo</td><td id="pIndirizzo"></td></tr><tr><td>e-mail</td><td id="pEmail"></td></tr><tr><td>Telefono</td><td id="pTelefono"></td></tr></table></div>
 </div>
 
+<div style="margin-top:14px">
+<img src="porta.png" class="p-door">
 <div class="p-title">Caratteristiche Anta Battente</div>
 <div class="p-bullet">• Struttura: Lastra d'acciaio zincato spessore 15/10 irrigidita da n° 2 omega di rinforzo + piastra di rinforzo della serratura spessore 30/10 dal peso di 55 Kg</div>
 <div class="p-bullet">• Coibentazione: Materiali Fonoassorbenti</div>
@@ -86,73 +87,57 @@
 <div class="p-bullet">• Finitura: Prefilmato in PVC su entrambi i lati colore testa di moro</div>
 <div class="p-bullet">• Registrazione mediante 8 viti in orizzontale e in verticale + registro dello scrocco</div>
 <div class="p-bullet">• Guarnizione su 3 lati</div>
+<div class="clear"></div>
+</div>
 
 <div class="p-title">Personalizzazione:</div>
 <div id="pPersonalizzazione"></div>
 
 <div class="p-title">Dati Tecnici:</div>
-<div class="p-bullet">• Classe Effrazione 3 EN 1627 (Struttura)</div>
-<div class="p-bullet">• Classe Effrazione 6 (Serratura)</div>
-<div class="p-bullet">• Potere fonoisolante RW 38dB *</div>
-<div class="p-bullet">• Coefficiente di trasmittanza termica Ud: 1,4 W/m2K *</div>
-<div class="p-bullet">• Classe permeabilità all’aria 1</div>
-<div class="p-bullet">• Resistenza al carico del vento Classe 5</div>
-<div style="font-size:8px;margin-top:4px">*Il coefficiente termico e il potere fonoisolante indicati sono stati calcolati in base ai rivestimenti indicati.</div>
+<div class="p-bullet">• Classe Effrazione 3 EN 1627 (Struttura) • Classe Effrazione 6 (Serratura) • Potere fonoisolante RW 38dB *</div>
+<div class="p-bullet">• Coefficiente di trasmittanza termica Ud: 1,4 W/m2K * • Classe permeabilità all’aria 1 • Resistenza al carico del vento Classe 5</div>
 
 <div class="p-tot">TOTALE A LEI RISERVATO € <span id="pTot"></span></div>
-<div style="margin-top:6px">COMPRESO DI IVA AL <span id="pIva">10</span>%, TRASPORTO AL PIANO, INSTALLAZIONE, SMONTAGGIO E SMALTIMENTO DEL VECCHIO.</div>
-<div style="margin-top:10px">TEMPI DI CONSEGNA CIRCA 60/70 GIORNI LAVORATIVI</div>
-<div style="margin-top:6px">MODALITA' DI PAGAMENTO: 40% ALL'ORDINE, 40% AD AVVISO MERCE PRONTA, 20% ALLA CONSEGNA.</div>
+<div>COMPRESO DI IVA AL <span id="pIva">10</span>%, TRASPORTO AL PIANO, INSTALLAZIONE, SMONTAGGIO E SMALTIMENTO DEL VECCHIO.</div>
+<div style="margin-top:10px">TEMPI DI CONSEGNA CIRCA 60/70 GIORNI LAVORATIVI<br>MODALITA’ DI PAGAMENTO: 40% ALL’ORDINE, 40% AD AVVISO MERCE PRONTA, 20% ALLA CONSEGNA.</div>
 <div style="margin-top:30px;display:flex;justify-content:space-between"><div>MARGAGLIOTTI S.R.L.S.</div><div>PER ACCETTAZIONE: ___________________________</div></div>
 </div>
 </div>
-
 <script>
 const V={R_S:33.86,R_F:56.44,P_S:275.61,P_F:344.51,A_S:367.79,A_F:459.74,ROC_S:166.18,ROC_F:207.73,INC_S:234.85,INC_F:293.56,ROC_T_S:268.40,ROC_T_F:335.50,NOV_S:287.21,NOV_F:359.01,IMB_S:161.48,IMB_F:223.87,COP_I:51.42,COP_M:81.52};
 const O=[{n:'RAL 9016',p:49.54},{n:'Acciaio inox',p:57.07},{n:'Colore RAL',p:102.84},{n:'Genovese',p:158.97},{n:'Maniglieria',p:20.07}];
 const RIVS=[{id:'eco', name:'Eco', std:V.R_S, fm:V.R_F},{id:'pvc', name:'PVC', std:V.P_S, fm:V.P_F},{id:'alu', name:'Alluminio', std:V.A_S, fm:V.A_F},{id:'roc', name:'Roccia Base', std:V.ROC_S, fm:V.ROC_F},{id:'inc', name:'Incisi', std:V.INC_S, fm:V.INC_F},{id:'rocT', name:'Roccia Tondo', std:V.ROC_T_S, fm:V.ROC_T_F},{id:'nov', name:'Novanta', std:V.NOV_S, fm:V.NOV_F}];
-function build(){ rivList.innerHTML=RIVS.map(r=>`<div class="check"><span>${r.name} <span id="${r.id}L" class="badge">${r.std.toFixed(2)}</span></span><input type="checkbox" id="${r.id}"></div>`).join(''); opts.innerHTML=O.map((o,i)=>`<div class="check"><span>${o.n} <b>${o.p}€</b></span><input type="checkbox" id="o${i}"></div>`).join(''); document.querySelectorAll('input,select,textarea').forEach(e=>{e.addEventListener('change',calc); e.addEventListener('input',calc);});}
+function build(){rivList.innerHTML=RIVS.map(r=>`<div class="check"><span>${r.name} <span id="${r.id}L" class="badge">${r.std.toFixed(2)}</span></span><input type="checkbox" id="${r.id}"></div>`).join('');opts.innerHTML=O.map((o,i)=>`<div class="check"><span>${o.n}</span><input type="checkbox" id="o${i}"></div>`).join('');document.querySelectorAll('input,select,textarea').forEach(e=>{e.addEventListener('change',calc);e.addEventListener('input',calc);});}
 let L={};
+function arrotondaEccesso100(v){return Math.ceil(v/100)*100;}
 function calc(){
- let b=parseFloat(modello.value),cc=controt.checked?38.25:0,fmV=parseFloat(fm.value),isFM=fmV>0,isDue=dueAnte.checked,mol=isDue?2:1;
- let imbP=isFM?V.IMB_F:V.IMB_S; imbL.innerText=imbP.toFixed(2)+(isFM?' FM':' STD');
- RIVS.forEach(r=>{ document.getElementById(r.id+'L').innerText=((isFM?r.fm:r.std)*mol).toFixed(2)+(isDue?' x2':'');});
+ let sel=modello.options[modello.selectedIndex]; let b=parseFloat(modello.value),cc=controt.checked?38.25:0,fmV=parseFloat(fm.value),isFM=fmV>0,isDue=dueAnte.checked,mol=isDue?2:1, modelName=sel.getAttribute('data-name');
+ let imbP=isFM?V.IMB_F:V.IMB_S; imbL.innerText=imbP.toFixed(0);
+ RIVS.forEach(r=>{let el=document.getElementById(r.id+'L'); if(el) el.innerText=((isFM?r.fm:r.std)*mol).toFixed(0);});
  let base=b+cc+fmV, extra=(defender.checked?73:0)+(rivest.checked?600:0);
  let luci=(sopra1.checked?252.88:0)+(sopra2.checked?339.71:0)+(fianco.checked?796.05:0)+(fiancoSopra.checked?1004.09:0)+(fiancoDop.checked?1187.72:0)+(fianchiSopra.checked?1465.49:0);
  let optNet=(cernScomp.checked?89.36:0)+(euroSound.checked?126.98:0)+(tirare.checked?90.92:0)+(classe4.checked?208.82:0)+(omnia.checked?453.70:0)+(tech.checked?1338.85:0)+(dueAnte.checked?491.02:0);
- let rivTot=0, rivNames=[]; RIVS.forEach(r=>{ let chk=document.getElementById(r.id); if(chk&&chk.checked){ rivTot+=(isFM?r.fm:r.std)*mol; rivNames.push(r.name); }});
+ let rivTot=0, rivNames=[]; RIVS.forEach(r=>{let chk=document.getElementById(r.id); if(chk&&chk.checked){rivTot+=(isFM?r.fm:r.std)*mol; rivNames.push(r.name);}});
  let imbTot=(imb.checked?imbP:0)+(copImp.checked?V.COP_I:0)+(copMass.checked?V.COP_M:0);
- let opt=0, optNames=[]; O.forEach((o,i)=>{ if(document.getElementById('o'+i).checked){ opt+=o.p; optNames.push(o.n);} });
+ let opt=0, optNames=[]; O.forEach((o,i)=>{if(document.getElementById('o'+i).checked){opt+=o.p; optNames.push(o.n);}});
  let sub=base+extra+rivTot+imbTot+opt+optNet+luci;
- let ricP=parseFloat(ricarico.value)||0, posaV=parseFloat(posa.value)||0, ivaPe=parseFloat(iva.value)||0, imp=sub+sub*ricP/100+posaV, totV=imp*(1+ivaPe/100);
- cBase.innerText='€'+sub.toFixed(2); tot.innerText='€'+totV.toFixed(2);
- // prepara personalizzazione
- let pers=[];
- pers.push('• Costruzione su misura fuori standard '+(isDue?'a due ante':'ad anta unica'));
- pers.push('• Modello: '+modello.options[modello.selectedIndex].text+' '+(isFM?'FM'+fmV:'STD'));
- if(controt.checked) pers.push('• Controtelaio incluso');
- if(imb.checked) pers.push('• Imbotte '+(isFM?'FM':'STD'));
- if(copImp.checked) pers.push('• Coprifili impiallacciati');
- if(copMass.checked) pers.push('• Coprifili massiccio');
- if(rivNames.length) pers.push('• Rivestimento '+(isDue?'(x2) ':'')+rivNames.join(', '));
- if(sopra1.checked) pers.push('• Sopraluce 1 anta'); if(sopra2.checked) pers.push('• Sopraluce 2 ante'); if(fianco.checked) pers.push('• Fiancoluce'); if(fiancoSopra.checked) pers.push('• Fiancoluce e Sopraluce'); if(fiancoDop.checked) pers.push('• Fiancoluce Doppio'); if(fianchiSopra.checked) pers.push('• Fianchiluce e Sopraluce');
+ let ricP=parseFloat(ricarico.value)||0, posaV=parseFloat(posa.value)||0, ivaPe=parseFloat(iva.value)||0, imp=sub+sub*ricP/100+posaV, totReale=imp*(1+ivaPe/100), totArrotondato=arrotondaEccesso100(totReale);
+ cBase.innerText='€'+totReale.toFixed(2)+' → '+totArrotondato.toFixed(0); tot.innerText='€'+totArrotondato.toFixed(2);
+ let pers=[]; pers.push('• Costruzione su misura fuori standard '+(isDue?'a due ante':'ad anta unica')); pers.push('• Telaio '+(fmV>0?'FM':'Bianco STD')+' - Mano di apertura a spingere verso l’interno');
+ if(controt.checked) pers.push('• Controtelaio incluso'); if(imb.checked) pers.push('• Imbotte '+(isFM?'FM':'STD')); if(copImp.checked) pers.push('• Coprifili impiallacciati'); if(copMass.checked) pers.push('• Coprifili massiccio');
+ if(rivNames.length) pers.push('• Rivestimento '+(isDue?'(x2) ':'')+rivNames.join(', ')); if(sopra1.checked) pers.push('• Sopraluce 1 anta'); if(sopra2.checked) pers.push('• Sopraluce 2 ante'); if(fianco.checked) pers.push('• Fiancoluce'); if(fiancoSopra.checked) pers.push('• Fiancoluce e Sopraluce'); if(fiancoDop.checked) pers.push('• Fiancoluce Doppio'); if(fianchiSopra.checked) pers.push('• Fianchiluce e Sopraluce');
  if(cernScomp.checked) pers.push('• Cerniere a scomparsa'); if(euroSound.checked) pers.push('• Euro Sound'); if(tirare.checked) pers.push('• Dispositivo Tirare'); if(classe4.checked) pers.push('• Classe 4 antieffrazione'); if(omnia.checked) pers.push('• Serratura Omnia'); if(tech.checked) pers.push('• Serratura Tech');
- if(optNames.length) optNames.forEach(n=>pers.push('• '+n));
- if(defender.checked) pers.push('• Defender aggiuntivo'); if(rivest.checked) pers.push('• Falegnameria rivestimento speciale');
- // standard fissi
- pers.push('• Telaio Bianco'); pers.push('• Mano di apertura a spingere verso l’interno'); pers.push('• Maniglieria interna ed esterna a scelta tra ottone lucido, bronzo opaco e cromo satinato'); pers.push('• Dispositivo di apertura controllata'); pers.push('• Para aria antispiffero a discesa automatica registrabile'); 
+ if(optNames.length) optNames.forEach(n=>pers.push('• '+n)); if(defender.checked) pers.push('• Defender aggiuntivo'); if(rivest.checked) pers.push('• Falegnameria rivestimento speciale');
+ pers.push('• Maniglieria interna ed esterna a scelta tra ottone lucido, bronzo opaco e cromo satinato'); pers.push('• Dispositivo di apertura controllata'); pers.push('• Para aria antispiffero a discesa automatica registrabile');
  if(note.value) pers.push('• '+note.value);
- L={sub,imp,totV,ivaPe,pers,modello:modello.options[modello.selectedIndex].text,ragione:ragione.value,indirizzo:indirizzo.value,email:email.value,telefono:telefono.value};
- document.getElementById('pRagione').innerText=L.ragione; document.getElementById('pRagione2').innerText=''; document.getElementById('pIndirizzo').innerText=L.indirizzo; document.getElementById('pEmail').innerText=L.email; document.getElementById('pTelefono').innerText=L.telefono;
- document.getElementById('pModello').innerText=L.modello+' '+(isFM?'FM'+fmV:'STD')+(isDue?' DUE ANTE':'');
- document.getElementById('pPersonalizzazione').innerHTML=L.pers.map(p=>'<div class="p-bullet">'+p+'</div>').join('');
- document.getElementById('pTot').innerText=totV.toFixed(2); document.getElementById('pIva').innerText=ivaPe;
+ L={totReale,totArrotondato,ivaPe,pers,modelName,ragione:ragione.value,indirizzo:indirizzo.value,email:email.value,telefono:telefono.value};
+ pRagione.innerText=L.ragione; pIndirizzo.innerText=L.indirizzo; pEmail.innerText=L.email; pTelefono.innerText=L.telefono;
+ pModello.innerText=L.modelName+' '+(isFM?'FM':'')+(isDue?' DUE ANTE':'');
+ pPersonalizzazione.innerHTML=L.pers.map(p=>'<div class="p-bullet">'+p+'</div>').join('');
+ pTot.innerText=totArrotondato.toFixed(2); pIva.innerText=ivaPe;
  return L;
 }
 btnPdf.addEventListener('click',()=>{calc(); printArea.style.display='block'; window.print(); setTimeout(()=>printArea.style.display='none',500);});
-btnWa.addEventListener('click',()=>{calc();
- let msg=`Ciao ${L.ragione||''}!%0A%0APreventivo MARGAGLIOTTI S.R.L.S.%0A%0AModello: ${L.modello}%0A${L.pers.slice(0,5).join('%0A')}%0A%0ATOTALE A LEI RISERVATO: €${L.totV.toFixed(2)}%0ACompreso IVA ${L.ivaPe}%, trasporto e posa.%0A%0ATempi 60/70gg lav.%0AVIA DANTE 19/A CA - 0703325634`;
- window.open('https://wa.me/?text='+msg,'_blank');
-});
+btnWa.addEventListener('click',()=>{calc(); let msg=`Ciao ${L.ragione||''}!%0APreventivo MARGAGLIOTTI%0AModello: ${L.modelName}%0ATOTALE A LEI RISERVATO: €${L.totArrotondato.toFixed(2)}%0ACompreso IVA ${L.ivaPe}%25, trasporto e posa.%0AVIA DANTE 19/A CA - 070 3325634`; window.open('https://wa.me/?text='+msg,'_blank');});
 build(); calc();
 </script></body></html>
